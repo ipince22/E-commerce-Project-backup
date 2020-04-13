@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../img/logo.svg";
+import logo from "../../img/icons8-iphone-24.png";
+import styled from "styled-components";
+import { ButtonContainer } from "./Button";
 
 export const Navbar = () => {
 	return (
@@ -15,6 +17,14 @@ export const Navbar = () => {
 					</Link>
 				</li>
 			</ul>
+			<Link to="/cart" className="ml-auto">
+				<ButtonContainer>
+					<span>
+						<i className="fas fa-cart-plus" />
+						My Cart
+					</span>
+				</ButtonContainer>
+			</Link>
 		</nav>
 	);
 };
