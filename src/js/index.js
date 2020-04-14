@@ -11,12 +11,15 @@ import "../styles/index.scss";
 
 //import your own components
 import { App } from "./views/App/App";
+import { ProductProvider } from "../js/store/context";
 
 //render your react application
 ReactDOM.render(
-	<Router>
-		<App />
-	</Router>,
+	<ProductProvider>
+		<Router>
+			<App />
+		</Router>
+	</ProductProvider>,
 
 	document.querySelector("#app")
 );
