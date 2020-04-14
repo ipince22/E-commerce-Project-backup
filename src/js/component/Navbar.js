@@ -17,6 +17,13 @@ export const Navbar = () => {
 					</Link>
 				</li>
 			</ul>
+
+			<Link to="/cart" className="ml-auto">
+				<ButtonContainer>
+					<span className="mr-2">Sign In / Register</span>
+				</ButtonContainer>
+			</Link>
+
 			<Link to="/cart" className="ml-auto">
 				<ButtonContainer>
 					<span className="mr-2">
