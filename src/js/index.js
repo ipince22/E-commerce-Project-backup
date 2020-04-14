@@ -10,7 +10,7 @@ import "bootstrap";
 import "../styles/index.scss";
 
 //import your own components
-import { App } from "./component/app.js";
+import { App } from "./views/App/App";
 
 //render your react application
 ReactDOM.render(

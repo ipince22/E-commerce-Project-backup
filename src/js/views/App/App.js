@@ -1,12 +1,12 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-import { Cart } from "./Cart";
-import { Default } from "./Default";
-import { Details } from "./Details";
-import { Navbar } from "./Navbar";
-import { ProductList } from "./ProductList";
+
+import { Cart } from "../Products/Cart";
+import { Default } from "../Others/Default";
+import { Details } from "../Products/Details";
+import { Navbar } from "../../component/Navbar";
+import { ProductList } from "../Products/ProductList";
 
 //create your first component
 export function App() {
