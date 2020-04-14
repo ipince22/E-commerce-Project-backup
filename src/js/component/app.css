@@ -11,10 +11,13 @@ body{
     color: var(--mainDark )!important
 }
 .text-title{
-    font-family: "Permanent Marker" !important;
+    font-family: "Permanent Marker",cursive !important;
     letter-spacing: 0.3rem;
     text-transform: uppercase;
 }
 .text-blue{
     color:var(--mainBlue);
+}
+.text-bright{
+    color:var(--lightBlue);
 }
