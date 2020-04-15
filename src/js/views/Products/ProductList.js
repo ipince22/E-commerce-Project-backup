@@ -16,7 +16,10 @@ export const ProductList = () => {
 					<div className="row">
 						<ProductConsumer>
 							{value => {
+								//console.log(value);
+
 								return value.products.map(product => {
+									//console.log(product);
 									return (
 										<Product
 											key={product.id}

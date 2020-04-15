@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 import { ProductConsumer } from "../../store/context";
 import PropTypes from "prop-types";
 
-export const Product = product => {
+export const Product = props => {
 	//const { id, title, img, price, inCart } = this.props.product;
-	console.log(product.img);
+
+	//console.log(product.img);
 	return (
 		<ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
 			<div className="card">
@@ -18,18 +19,18 @@ export const Product = product => {
 					}>
 					<Link to="/details">
 						<img
-							src={product.img}
+							src={props.img}
 							alt="Product"
 							className="card-img-top"
 						/>
 					</Link>
 					<button
 						className="cart-btn"
-						disabled={product.inCart ? true : false}
+						disabled={props.inCart ? true : false}
 						onClick={() => {
 							console.log("add the cart");
 						}}>
-						{product.inCart ? (
+						{props.inCart ? (
 							<p className="text-capitalize mb-0" disabled>
 								in inCart
 							</p>

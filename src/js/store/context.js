@@ -10,10 +10,10 @@ export const ProductProvider = props => {
 	const [products, setProducts] = useState(storeProducts);
 	const [detailsProduct, setDetailsProduct] = useState(detailProduct);
 	/*
-	function handleDetails(){
+	const handleDetails=()=>{
 		console.log("Hello from details");
 	}
-	function addToCart() {
+	const addToCart=()=> {
 		console.log("hello from add to cart");
 	}
 */
@@ -22,8 +22,8 @@ export const ProductProvider = props => {
 			value={{
 				products,
 				detailsProduct
-				//handleDetails(),//: this.handleDetails,
-				//addToCart()//: this.addToCart
+				//handleDetails,//: this.handleDetails,
+				//addToCart//: this.addToCart
 			}}>
 			{props.children}
 		</ProductContext.Provider>
