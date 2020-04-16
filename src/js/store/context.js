@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-
 import { storeProducts, detailProduct } from "../store/data";
-
+import PropTypes from "prop-types";
 const ProductContext = React.createContext();
-//Provider
-//Consumer
 
 export const ProductProvider = props => {
 	const [products, setProducts] = useState(storeProducts);
@@ -31,3 +28,7 @@ export const ProductProvider = props => {
 };
 export const ProductConsumer = ProductContext.Consumer;
 //export {ProductProvider,ProductConsumer};
+
+ProductProvider.propTypes = {
+	children: PropTypes.node
+};
