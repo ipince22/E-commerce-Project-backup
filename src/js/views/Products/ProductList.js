@@ -23,7 +23,12 @@ export const ProductList = () => {
 									return (
 										<Product
 											key={product.id}
-											product={product}
+											id={product.id}
+											img={product.img}
+											inCart={product.inCart}
+											price={product.price}
+											title={product.title}
+											//product={product}
 										/>
 									);
 								});
@@ -36,3 +41,15 @@ export const ProductList = () => {
 		//<Product />
 	);
 };
+
+/*
+id:,
+title: ,
+img: ,
+price: ,
+company: ,
+info: ,
+inCart: ,
+count: ,
+total: 
+*/
