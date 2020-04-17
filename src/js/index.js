@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
 //include bootstrap npm library into the bundle
-import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 //include your index.scss file into the bundle
 import "../styles/index.scss";
