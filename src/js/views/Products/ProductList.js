@@ -29,6 +29,7 @@ export const ProductList = () => {
 											price={product.price}
 											title={product.title}
 											//product={product}
+											//***consultar hernan
 										/>
 									);
 								});

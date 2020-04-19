@@ -5,7 +5,7 @@ const ProductContext = React.createContext();
 
 export const ProductProvider = props => {
 	const [products, setProducts] = useState([]); //storeProducts
-	const [detailsProduct, setDetailsProduct] = useState(detailProduct);
+	const [detailProduct, setDetailProduct] = useState(detailProduct); //
 
 	useEffect(() => {
 		getProducts();
@@ -21,8 +21,17 @@ export const ProductProvider = props => {
 		return products;
 	}
 
-	const handleDetails = () => {
-		console.log("Hello from details");
+	const getItem = id => {
+		const product = products.find(item => item.id === id);
+		console.log("getItem()", product);
+		return product;
+	};
+
+	const handleDetails = id => {
+		const product = getItem(id);
+		setDetailProduct(product);
+		console.log("handleDetails()", detailProduct);
+		return detailProduct;
 	};
 	const addToCart = id => {
 		console.log("hello from add to cart", id);
@@ -32,7 +41,7 @@ export const ProductProvider = props => {
 		<ProductContext.Provider
 			value={{
 				products,
-				detailsProduct,
+				detailProduct,
 				handleDetails,
 				addToCart
 			}}>

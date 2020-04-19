@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ProductConsumer } from "../../store/context";
 import { Link } from "react-router-dom";
 import { ButtonContainer } from "../../component/Button";
@@ -10,15 +10,14 @@ export const Details = () => {
 			{value => {
 				const {
 					id,
-					company,
-					img,
-					info,
-					price,
 					title,
+					img,
+					price,
+					company,
+					info,
 					inCart
-				} = value.detailsProduct;
-
-				console.log(img);
+				} = value.detailProduct;
+				console.log("detalle producto:", value.detailProduct);
 				return (
 					<div className="container py-5">
 						{/*title */}
@@ -65,6 +64,7 @@ export const Details = () => {
 										</ButtonContainer>
 									</Link>
 									<ButtonContainer
+										cart
 										disabled={inCart ? true : false}
 										onClick={() => {
 											value.addToCart(id);
@@ -80,6 +80,7 @@ export const Details = () => {
 		</ProductConsumer>
 	);
 };
+
 Details.propTypes = {
 	id: PropTypes.number,
 	company: PropTypes.string,

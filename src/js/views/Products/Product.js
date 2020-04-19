@@ -11,33 +11,37 @@ export const Product = props => {
 	return (
 		<ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
 			<div className="card">
-				<div
-					className="img-container p-5"
-					onClick={() =>
-						console.log("you clicked me on the imaee container")
-					}>
-					<Link to="/details">
-						<img
-							src={imgdemo /*props.img*/}
-							alt="Product"
-							className="card-img-top"
-						/>
-					</Link>
-					<button
-						className="cart-btn"
-						disabled={props.inCart ? true : false}
-						onClick={() => {
-							console.log("add the cart");
-						}}>
-						{props.inCart ? (
-							<p className="text-capitalize mb-0" disabled>
-								in inCart
-							</p>
-						) : (
-							<i className="fas fa-cart-plus" />
-						)}
-					</button>
-				</div>
+				<ProductConsumer>
+					{value => (
+						<div
+							className="img-container p-5"
+							onClick={() => value.handleDetails(props.id)}>
+							<Link to="/details">
+								<img
+									src={imgdemo /*props.img*/}
+									alt="Product"
+									className="card-img-top"
+								/>
+							</Link>
+							<button
+								className="cart-btn"
+								disabled={props.inCart ? true : false}
+								onClick={() => {
+									value.addToCart(props.id);
+								}}>
+								{props.inCart ? (
+									<p
+										className="text-capitalize mb-0"
+										disabled>
+										in inCart
+									</p>
+								) : (
+									<i className="fas fa-cart-plus" />
+								)}
+							</button>
+						</div>
+					)}
+				</ProductConsumer>
 				{/* card footer */}
 				<div className="card-footer d-flex justify-content-between">
 					<p className="align-self-center mb-0">{props.title}</p>
@@ -63,6 +67,15 @@ Product.propTypes = {
 	total: PropTypes.number
 };
 
+/*
+		product: PropTypes.shape({
+		id: PropTypes.number,
+		title: PropTypes.string,
+		img: PropTypes.string,
+		price: PropTypes.number,
+		inCart: PropTypes.bool
+	}).isRequired
+*/
 const ProductWrapper = styled.div`
 	.card {
 		border-color: transparent;
