@@ -27,13 +27,14 @@ export const Product = props => {
 								className="cart-btn"
 								disabled={props.inCart ? true : false}
 								onClick={() => {
-									value.addToCart(props.id);
+									//value.addToCart(props.id);
+									value.openModal(props.id);
 								}}>
 								{props.inCart ? (
 									<p
 										className="text-capitalize mb-0"
 										disabled>
-										in inCart
+										in Cart
 									</p>
 								) : (
 									<i className="fas fa-cart-plus" />

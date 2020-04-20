@@ -17,7 +17,7 @@ export const Details = () => {
 					info,
 					inCart
 				} = value.detailProduct;
-				console.log("detalle producto:", value.detailProduct);
+				//console.log("detalle producto:", value.detailProduct);
 				return (
 					<div className="container py-5">
 						{/*title */}
@@ -67,9 +67,10 @@ export const Details = () => {
 										cart
 										disabled={inCart ? true : false}
 										onClick={() => {
-											value.addToCart(id);
+											//value.addToCart(id);
+											value.openModal(id);
 										}}>
-										{inCart ? "inCart" : "Add to cart"}
+										{inCart ? "in Cart" : "Add to cart"}
 									</ButtonContainer>
 								</div>
 							</div>

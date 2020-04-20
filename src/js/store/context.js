@@ -6,7 +6,9 @@ const ProductContext = React.createContext();
 export const ProductProvider = props => {
 	const [products, setProducts] = useState([]); //storeProducts
 	const [detailProduct, setDetailProduct] = useState(detailProduct); //
-
+	const [cart, setCart] = useState([]);
+	const [modalOpen, setmodalOpen] = useState(true);
+	const [Modal, setModal] = useState(detailProduct);
 	useEffect(() => {
 		getProducts();
 	}, []);
@@ -23,18 +25,38 @@ export const ProductProvider = props => {
 
 	const getItem = id => {
 		const product = products.find(item => item.id === id);
-		console.log("getItem()", product);
+		//console.log("getItem()", product);
 		return product;
 	};
 
 	const handleDetails = id => {
 		const product = getItem(id);
 		setDetailProduct(product);
-		console.log("handleDetails()", detailProduct);
+		//console.log("handleDetails()", detailProduct);
 		return detailProduct;
 	};
 	const addToCart = id => {
-		console.log("hello from add to cart", id);
+		let tempProducts = [...products];
+		const index = tempProducts.indexOf(getItem(id));
+		const product = tempProducts[index];
+		product.inCart = true;
+		product.count = 1;
+		const price = product.price;
+		product.total = price;
+		setProducts(tempProducts);
+		setCart(curr => [...curr, product]);
+		return { products, cart };
+	};
+
+	const openModal = id => {
+		const product = getItem(id);
+		setModal(product);
+		console.log("modal()", Modal);
+		return Modal;
+	};
+	const closeModal = () => {
+		setmodalOpen(false);
+		return modalOpen;
 	};
 
 	return (
@@ -43,7 +65,9 @@ export const ProductProvider = props => {
 				products,
 				detailProduct,
 				handleDetails,
-				addToCart
+				addToCart,
+				openModal,
+				closeModal
 			}}>
 			{props.children}
 		</ProductContext.Provider>
