@@ -8,7 +8,7 @@ const Checkout = () => {
 				<form className="checkout-form">
 					<h3>Shipping Address</h3>
 					<div className="form-group">
-						<label for="name">Name</label>
+						<label htmlFor="name">Name</label>
 						<input
 							type="text"
 							placeholder="Name"
@@ -19,7 +19,7 @@ const Checkout = () => {
 					</div>
 
 					<div className="form-group">
-						<label for="name">Last Name</label>
+						<label htmlFor="name">Last Name</label>
 						<input
 							type="text"
 							placeholder="Last name"
@@ -30,7 +30,7 @@ const Checkout = () => {
 					</div>
 
 					<div className="form-group">
-						<label for="name">Address Line 1</label>
+						<label htmlFor="name">Address Line 1</label>
 						<input
 							type="text"
 							placeholder="Address"
@@ -41,7 +41,7 @@ const Checkout = () => {
 					</div>
 
 					<div className="form-group">
-						<label for="name">Address Line 2</label>
+						<label htmlFor="name">Address Line 2</label>
 						<input
 							type="text"
 							placeholder="Apt, Suit, Bldg, Floor, etc"
@@ -52,7 +52,7 @@ const Checkout = () => {
 					</div>
 
 					<div className="form-group">
-						<label for="name">City</label>
+						<label htmlFor="name">City</label>
 						<input
 							type="text"
 							placeholder="City"
@@ -65,7 +65,7 @@ const Checkout = () => {
 					<div className="row">
 						<div className="col">
 							<div className="form-group">
-								<label for="name">State</label>
+								<label htmlFor="name">State</label>
 								<select className="form-control" id="state">
 									<option value="AL">Alabama</option>
 									<option value="AK">Alaska</option>
@@ -126,7 +126,7 @@ const Checkout = () => {
 
 						<div className="col">
 							<div className="form-group">
-								<label for="name">Zip code</label>
+								<label htmlFor="name">Zip code</label>
 								<input
 									type="text"
 									placeholder="Zip code"
@@ -139,7 +139,7 @@ const Checkout = () => {
 					</div>
 
 					<div className="form-group">
-						<label for="name">Phone Number</label>
+						<label htmlFor="name">Phone Number</label>
 						<input
 							type="text"
 							placeholder="Phone Number"
@@ -158,7 +158,7 @@ const Checkout = () => {
 			<div className="col">
 				<form className="form_2">
 					<div type="form-group">
-						<label for="name">Name</label>
+						<label htmlFor="name">Name</label>
 						<input
 							type="text"
 							placeholder="Name"
@@ -169,7 +169,7 @@ const Checkout = () => {
 					</div>
 
 					<div type="form-group">
-						<label for="name">Last Name</label>
+						<label htmlFor="name">Last Name</label>
 						<input
 							type="text"
 							placeholder="Last name"
