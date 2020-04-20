@@ -7,7 +7,7 @@ export const ProductProvider = props => {
 	const [products, setProducts] = useState([]); //storeProducts
 	const [detailProduct, setDetailProduct] = useState(detailProduct); //
 	const [cart, setCart] = useState([]);
-	const [modalOpen, setmodalOpen] = useState(true);
+	const [modalOpen, setmodalOpen] = useState(false);
 	const [Modal, setModal] = useState(detailProduct);
 	useEffect(() => {
 		getProducts();
@@ -43,16 +43,20 @@ export const ProductProvider = props => {
 		product.count = 1;
 		const price = product.price;
 		product.total = price;
+
 		setProducts(tempProducts);
 		setCart(curr => [...curr, product]);
+		console.log("tempProducts", tempProducts);
+		console.log("cart", cart);
 		return { products, cart };
 	};
 
 	const openModal = id => {
+		setmodalOpen(true);
 		const product = getItem(id);
 		setModal(product);
-		console.log("modal()", Modal);
-		return Modal;
+		//console.log("modal()", Modal);
+		return { Modal, modalOpen };
 	};
 	const closeModal = () => {
 		setmodalOpen(false);

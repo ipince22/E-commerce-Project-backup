@@ -27,7 +27,7 @@ export const Product = props => {
 								className="cart-btn"
 								disabled={props.inCart ? true : false}
 								onClick={() => {
-									//value.addToCart(props.id);
+									value.addToCart(props.id);
 									value.openModal(props.id);
 								}}>
 								{props.inCart ? (

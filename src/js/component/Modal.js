@@ -5,7 +5,56 @@ import { ButtonContainer } from "../component/Button";
 import { Link } from "react-router-dom";
 
 export const Modal = () => {
-	return <div>modal</div>;
+	return (
+		<ProductConsumer>
+			{value => {
+				console.log("value modal.js", value);
+				console.log("Modal", value.Modal);
+				console.log("Modal open", modalOpen);
+				const { modalOpen, closeModal } = value;
+				//const {img, title, price } = value.Modal; //img
+				if (!modalOpen) {
+					return null;
+				} else {
+					<ModalContainer>
+						<div className="container">
+							<div className="row">
+								<div className="col-8 mx-auto col-md-6 col-lg-6 col-lg-4 text-center text-capitalize">
+									<h5>Item added to the cart</h5>
+									<img
+										src={"imagen"}
+										className="img-fluid"
+										alt="product"
+									/>
+									<h5>{"title"}</h5>
+									<h5 className="text-muted">
+										price : ${"price"}
+									</h5>
+									<Link to="/">
+										<ButtonContainer
+											onClick={() => {
+												closeModal();
+											}}>
+											Store
+										</ButtonContainer>
+									</Link>
+									<Link to="/cart">
+										<ButtonContainer
+											cart
+											onClick={() => {
+												closeModal();
+											}}>
+											go to cart
+										</ButtonContainer>
+									</Link>
+								</div>
+							</div>
+						</div>
+					</ModalContainer>;
+				}
+			}}
+		</ProductConsumer>
+	);
 };
 
 const ModalContainer = styled.div`
@@ -18,5 +67,7 @@ background:rgba(0,0,0,0.3);
 display:flex;
 align-items:center;
 justify-content:center;
-
+#modal{
+    background:#f3f3f3;
+}
 `;
