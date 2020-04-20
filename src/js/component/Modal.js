@@ -8,12 +8,9 @@ export const Modal = () => {
 	return (
 		<ProductConsumer>
 			{value => {
-				console.log("value modal.js", value);
-				console.log("Modal", value.Modal);
-				console.log("Modal open", modalOpen);
-				const { modalOpen, closeModal } = value;
-				//const {img, title, price } = value.Modal; //img
-				if (!modalOpen) {
+				const { openModal, closeModal } = value;
+				//const { img, title, price } = value.Modal; //img
+				if (!openModal) {
 					return null;
 				} else {
 					<ModalContainer>
