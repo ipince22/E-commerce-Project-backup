@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../../store/context";
 import PropTypes from "prop-types";
-import imgdemo from "./img/product-3.png";
+
 //******INSTALL */
 //npm install -g requirejs
 

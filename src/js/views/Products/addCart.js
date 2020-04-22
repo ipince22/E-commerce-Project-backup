@@ -2,6 +2,7 @@ import React from "react";
 import { CartColumns } from "../../component/CartColumns";
 import { CartEmpty } from "../../component/CartEmpty";
 import { ProductConsumer } from "../../store/context";
+import { CartList } from "./CartList";
 export const addCart = () => {
 	return (
 		<section>
@@ -16,6 +17,7 @@ export const addCart = () => {
 									your cart
 								</h1>
 								<CartColumns />
+								<CartList value={value} />
 							</React.Fragment>
 						);
 					} else {
