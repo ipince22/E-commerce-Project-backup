@@ -1,10 +1,11 @@
 import React from "react";
-
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../../store/context";
 import PropTypes from "prop-types";
-import imgdemo from "../../../img/product-1.png";
+
+//******INSTALL */
+//npm install -g requirejs
 
 export const Product = props => {
 	//console.log(props.img);
@@ -18,7 +19,7 @@ export const Product = props => {
 							onClick={() => value.handleDetails(props.id)}>
 							<Link to="/details">
 								<img
-									src={imgdemo /*props.img*/}
+									src={require("./img/product-2.png")}
 									alt="Product"
 									className="card-img-top"
 								/>
@@ -28,6 +29,11 @@ export const Product = props => {
 								disabled={props.inCart ? true : false}
 								onClick={() => {
 									value.addToCart(props.id);
+									console.log(
+										"detailProduct",
+										value.detailProduct
+									);
+									//console.log("cart", value.);
 									value.openModal(props.id);
 								}}>
 								{props.inCart ? (

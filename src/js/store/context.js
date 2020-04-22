@@ -52,13 +52,12 @@ export const ProductProvider = props => {
 	};
 
 	const openModal = id => {
-		console.log("1-id", id);
 		setmodalOpen(true);
-		console.log("2-modalOpen", modalOpen);
+
 		const product = getItem(id);
-		console.log("3-Product", product);
+
 		setModal(product);
-		console.log("4-openModal-modal", Modal);
+
 		return { Modal, modalOpen };
 	};
 	const closeModal = () => {
