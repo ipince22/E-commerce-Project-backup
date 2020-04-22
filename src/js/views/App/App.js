@@ -2,7 +2,8 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 //include images into your bundle
 import "./app.css";
-import { Cart } from "../Products/Cart";
+//import { Cart } from "../Products/Cart";
+import { addCart } from "../Products/addCart";
 import { Default } from "../Others/Default";
 import { Login } from "../Account/Login";
 import { Sign_up } from "../Account/Sign_up/Sign_up";
@@ -21,7 +22,7 @@ export function App() {
 			<Switch>
 				<Route exact path="/" component={ProductList} />
 				<Route path="/details" component={Details} />
-				<Route path="/cart" component={Cart} />
+				<Route path="/cart" component={addCart} />
 				<Route path="/checkout" component={Checkout} />
 				<Route path="/password" component={Password} />
 				<Route path="/sign_up" component={Sign_up} />

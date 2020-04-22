@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../../store/context";
 import PropTypes from "prop-types";
-
+import imgdemo from "./img/product-3.png";
 //******INSTALL */
 //npm install -g requirejs
 
@@ -19,7 +19,8 @@ export const Product = props => {
 							onClick={() => value.handleDetails(props.id)}>
 							<Link to="/details">
 								<img
-									src={require("./img/product-3.png")}
+									//src={require("./img/product-3.png")}
+									src={imgdemo}
 									alt="Product"
 									className="card-img-top"
 								/>

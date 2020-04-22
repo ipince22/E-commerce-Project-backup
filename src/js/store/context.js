@@ -6,7 +6,7 @@ const ProductContext = React.createContext();
 export const ProductProvider = props => {
 	const [products, setProducts] = useState([]); //storeProducts
 	const [detailProduct, setDetailProduct] = useState(storedetailsProduct); //
-	const [cart, setCart] = useState([]);
+	const [cart, setCart] = useState(storeProducts);
 	const [modalOpen, setmodalOpen] = useState(false);
 	const [Modal, setModal] = useState(storedetailsProduct);
 	const [cartSubtotal, setcartSubtotal] = useState(0);
@@ -81,6 +81,7 @@ export const ProductProvider = props => {
 	return (
 		<ProductContext.Provider
 			value={{
+				cart,
 				products,
 				detailProduct,
 				handleDetails,
