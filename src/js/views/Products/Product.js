@@ -20,7 +20,7 @@ export const Product = props => {
 							<Link to="/details">
 								<img
 									//src={require("./img/product-3.png")}
-									src={imgdemo}
+									src={props.img}
 									alt="Product"
 									className="card-img-top"
 								/>
