@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { storeProducts, detailProduct } from "../store/data";
+import { storeProducts, storedetailsProduct } from "../store/data";
 import PropTypes from "prop-types";
 const ProductContext = React.createContext();
 
 export const ProductProvider = props => {
 	const [products, setProducts] = useState([]); //storeProducts
-	const [detailProduct, setDetailProduct] = useState(detailProduct); //
+	const [detailProduct, setDetailProduct] = useState(storedetailsProduct); //
 	const [cart, setCart] = useState([]);
 	const [modalOpen, setmodalOpen] = useState(false);
-	const [Modal, setModal] = useState(detailProduct);
+	const [Modal, setModal] = useState(storedetailsProduct);
+	const [cartSubtotal, setcartSubtotal] = useState(0);
+	const [cartTax, setcartTax] = useState(0);
+	const [cartTotal, setcartTotal] = useState(0);
+
 	useEffect(() => {
 		getProducts();
 	}, []);
@@ -53,16 +57,25 @@ export const ProductProvider = props => {
 
 	const openModal = id => {
 		setmodalOpen(true);
-
 		const product = getItem(id);
-
 		setModal(product);
-
 		return { Modal, modalOpen };
 	};
 	const closeModal = () => {
 		setmodalOpen(false);
 		return modalOpen;
+	};
+	const increment = id => {
+		console.log("increment:");
+	};
+	const decrement = id => {
+		console.log("decrement:");
+	};
+	const removeItem = id => {
+		console.log("removeItem:");
+	};
+	const clearCart = () => {
+		console.log("clear cart:");
 	};
 
 	return (
@@ -73,7 +86,11 @@ export const ProductProvider = props => {
 				handleDetails,
 				addToCart,
 				openModal,
-				closeModal
+				closeModal,
+				increment,
+				decrement,
+				removeItem,
+				clearCart
 			}}>
 			{props.children}
 		</ProductContext.Provider>

@@ -19,7 +19,7 @@ export const Product = props => {
 							onClick={() => value.handleDetails(props.id)}>
 							<Link to="/details">
 								<img
-									src={require("./img/product-2.png")}
+									src={require("./img/product-3.png")}
 									alt="Product"
 									className="card-img-top"
 								/>
@@ -29,11 +29,6 @@ export const Product = props => {
 								disabled={props.inCart ? true : false}
 								onClick={() => {
 									value.addToCart(props.id);
-									console.log(
-										"detailProduct",
-										value.detailProduct
-									);
-									//console.log("cart", value.);
 									value.openModal(props.id);
 								}}>
 								{props.inCart ? (

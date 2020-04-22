@@ -1,53 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { ProductConsumer } from "../store/context";
 import { ButtonContainer } from "../component/Button";
 import { Link } from "react-router-dom";
 
 export const Modal = () => {
+	const [modalOpen, setmodalOpen] = useState();
+	const [Modal, setModal] = useState([]);
+
 	return (
 		<ProductConsumer>
 			{value => {
-				const { openModal, closeModal } = value;
+				const { modalOpen, closeModal } = value;
+				//setmodalOpen(true);
 				//const { img, title, price } = value.Modal; //img
-				if (!openModal) {
+				if (!modalOpen) {
 					return null;
 				} else {
-					<ModalContainer>
-						<div className="container">
-							<div className="row">
-								<div className="col-8 mx-auto col-md-6 col-lg-6 col-lg-4 text-center text-capitalize">
-									<h5>Item added to the cart</h5>
-									<img
-										src={"imagen"}
-										className="img-fluid"
-										alt="product"
-									/>
-									<h5>{"title"}</h5>
-									<h5 className="text-muted">
-										price : ${"price"}
-									</h5>
-									<Link to="/">
-										<ButtonContainer
-											onClick={() => {
-												closeModal();
-											}}>
-											Store
-										</ButtonContainer>
-									</Link>
-									<Link to="/cart">
-										<ButtonContainer
-											cart
-											onClick={() => {
-												closeModal();
-											}}>
-											go to cart
-										</ButtonContainer>
-									</Link>
+					return (
+						<ModalContainer>
+							<div className="container">
+								<div className="row">
+									<div
+										id="modal"
+										className="col-8 mx-auto col-md-6 col-lg-6 col-lg-4 text-center text-capitalize">
+										<h5>Item added to the cart</h5>
+										<img
+											src={"imagen"}
+											className="img-fluid"
+											alt="product"
+										/>
+										<h5>{"title"}</h5>
+										<h5 className="text-muted">
+											price : ${"price"}
+										</h5>
+										<Link to="/">
+											<ButtonContainer
+												onClick={() => {
+													closeModal();
+												}}>
+												Store
+											</ButtonContainer>
+										</Link>
+										<Link to="/cart">
+											<ButtonContainer
+												cart
+												onClick={() => {
+													closeModal();
+												}}>
+												go to cart
+											</ButtonContainer>
+										</Link>
+									</div>
 								</div>
 							</div>
-						</div>
-					</ModalContainer>;
+						</ModalContainer>
+					);
 				}
 			}}
 		</ProductConsumer>
