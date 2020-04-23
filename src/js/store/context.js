@@ -9,9 +9,9 @@ export const ProductProvider = props => {
 	const [cart, setCart] = useState(storeProducts);
 	const [modalOpen, setmodalOpen] = useState(false);
 	const [Modal, setModal] = useState(storedetailsProduct);
-	const [cartSubtotal, setcartSubtotal] = useState(0);
-	const [cartTax, setcartTax] = useState(0);
-	const [cartTotal, setcartTotal] = useState(0);
+	const [cartSubtotal, setcartSubtotal] = useState(10);
+	const [cartTax, setcartTax] = useState(20);
+	const [cartTotal, setcartTotal] = useState(30);
 
 	useEffect(() => {
 		getProducts();
