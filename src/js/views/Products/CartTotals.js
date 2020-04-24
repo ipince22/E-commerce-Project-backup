@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 export const CartTotals = props => {
 	const { cartSubtotal, cartTax, cartTotal, clearCart } = props.totalObject;
-
+	//console.log("props.totalObject", props.totalObject);
+	console.log("cartSubtotal-", cartSubtotal);
 	return (
 		<React.Fragment>
 			<div className="container">
@@ -21,15 +22,15 @@ export const CartTotals = props => {
 						</Link>
 						<h5>
 							<span className="text-title">SubTotal:</span>
-							<strong>${cartSubtotal}</strong>
+							<strong>$ {cartSubtotal}</strong>
 						</h5>
 						<h5>
 							<span className="text-title">Tax:</span>
-							<strong>${cartTax}</strong>
+							<strong>$ {cartTax}</strong>
 						</h5>
 						<h5>
 							<span className="text-title">Total:</span>
-							<strong>${cartTotal}</strong>
+							<strong>$ {cartTotal}</strong>
 						</h5>
 					</div>
 				</div>

@@ -6,12 +6,12 @@ const ProductContext = React.createContext();
 export const ProductProvider = props => {
 	const [products, setProducts] = useState([]); //storeProducts
 	const [detailProduct, setDetailProduct] = useState(storedetailsProduct); //
-	const [cart, setCart] = useState(storeProducts);
+	const [cart, setCart] = useState([]);
 	const [modalOpen, setmodalOpen] = useState(false);
 	const [Modal, setModal] = useState(storedetailsProduct);
-	const [cartSubtotal, setcartSubtotal] = useState(10);
-	const [cartTax, setcartTax] = useState(20);
-	const [cartTotal, setcartTotal] = useState(30);
+	const [cartSubtotal, setcartSubtotal] = useState(0);
+	const [cartTax, setcartTax] = useState(0);
+	const [cartTotal, setcartTotal] = useState(0);
 
 	useEffect(() => {
 		getProducts();
@@ -50,6 +50,7 @@ export const ProductProvider = props => {
 
 		setProducts(tempProducts);
 		setCart(curr => [...curr, product]);
+		addTotals();
 		//console.log("tempProducts", tempProducts);
 		//console.log("cart", cart);
 		return { products, cart };
@@ -75,7 +76,27 @@ export const ProductProvider = props => {
 		console.log("removeItem:");
 	};
 	const clearCart = () => {
-		console.log("clear cart:");
+		let tempclearCart = [];
+		setCart(tempclearCart);
+
+		getProducts();
+		addTotals();
+
+		return cart;
+	};
+
+	const addTotals = () => {
+		let subTotal = 0;
+		cart.map(item => {
+			subTotal += item.total;
+		});
+		const tempTax = subTotal * 0.1;
+		const tax = parseFloat(tempTax.toFixed(2));
+		const total = subTotal + tax;
+		setcartSubtotal(subTotal);
+		setcartTax(tax);
+		setcartTotal(total);
+		return { cartSubtotal, cartTax, cartTotal };
 	};
 
 	return (
@@ -91,7 +112,10 @@ export const ProductProvider = props => {
 				increment,
 				decrement,
 				removeItem,
-				clearCart
+				clearCart,
+				cartSubtotal,
+				cartTax,
+				cartTotal
 			}}>
 			{props.children}
 		</ProductContext.Provider>
