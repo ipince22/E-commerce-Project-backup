@@ -67,13 +67,40 @@ export const ProductProvider = props => {
 		return modalOpen;
 	};
 	const increment = id => {
-		console.log("increment:");
+		let tempCart = [...Cart];
+		const selectedProduct = tempCart.find(item => item.id === id);
+		const index = tempCart.indexOf(selectedProduct);
+		const product = tempCart[index];
+		product.count = product.count + 1;
+		product.total = product.count * product.price;
+		setCart([...tempCart]);
+		addTotals();
+		return Cart;
 	};
 	const decrement = id => {
-		console.log("decrement:");
+		let tempCart = [...Cart];
+		const selectedProduct = tempCart.find(item => item.id === id);
+		const index = tempCart.indexOf(selectedProduct);
+		const product = tempCart[index];
+		product.count = product.count - 1;
+		product.total = product.count * product.price;
+		setCart([...tempCart]);
+		addTotals();
+		return Cart;
 	};
 	const removeItem = id => {
-		console.log("removeItem:");
+		let tempProducts = [...products];
+		let tempCart = [...Cart];
+		tempCart = tempCart.filter(item => item.id !== id);
+		const index = tempProducts.indexOf(this.getItem(id));
+		let removedProduct = tempProducts[index];
+		removedProduct.inCart = false;
+		removedProduct.count = 0;
+		removedProduct.total = 0;
+		setProducts([...tempProducts]);
+		setCart([...tempCart]);
+		addTotals();
+		return { Products, Cart };
 	};
 	const clearCart = () => {
 		let tempclearCart = [];
