@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const CartTotals = props => {
 	const { cartSubtotal, cartTax, cartTotal, clearCart } = props.totalObject;
 	//console.log("props.totalObject", props.totalObject);
-	console.log("cartSubtotal-", cartSubtotal);
+	//console.log("cartSubtotal-", cartSubtotal);
 	return (
 		<React.Fragment>
 			<div className="container">

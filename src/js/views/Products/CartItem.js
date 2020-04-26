@@ -30,7 +30,7 @@ export const CartItem = props => {
 				<span
 					className="btn btn-black mx-1"
 					onClick={() => {
-						decrement(id);
+						if (count > 1) decrement(id);
 					}}>
 					-
 				</span>
