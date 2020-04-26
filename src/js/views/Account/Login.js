@@ -33,7 +33,7 @@ class Login extends Component {
 			<div className="login-form">
 				{this.state.isSignedIn ? (
 					<span>
-						<Redirect to="home" />
+						<Redirect to="/" />
 						<button onClick={() => firebase.auth().signOut()}>
 							Sign Out!
 						</button>
