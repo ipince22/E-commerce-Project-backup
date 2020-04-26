@@ -1,37 +1,52 @@
-import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { FacebookLoginButton } from "react-social-login-buttons";
-import { ButtonContainer } from "../../component/Button";
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/FirebaseAuth";
+import { Redirect } from "react-router";
 import "./login.css";
 
-export const Login = () => {
-	return (
-		<Form className="login-form">
-			<h2 className="text-center">Welcome</h2>
-			<FormGroup>
-				<Label>Email</Label>
-				<Input type="email" placeholder="email" />
-			</FormGroup>
+firebase.initializeApp({
+	apiKey: "AIzaSyDYjRvEqgMaXVVyUguFXsrpbp4Pet4G_uE",
+	authDomain: "e-commerce-c4b91.firebaseapp.com"
+});
 
-			<FormGroup>
-				<Label>Password</Label>
-				<Input type="password" placeholder="password" />
-			</FormGroup>
+class Login extends Component {
+	state = { isSignedIn: false };
+	uiConfig = {
+		signInFlow: "popup",
+		signInOptions: [
+			// firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+			firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+			firebase.auth.EmailAuthProvider.PROVIDER_ID
+		],
+		callbacks: {
+			signInsusses: () => false
+		}
+	};
 
-			<ButtonContainer className="btn-lg btn-block">
-				Log in
-			</ButtonContainer>
-
-			<div className="text-center pt-3">Or continue with Facebook</div>
-
-			<FacebookLoginButton className="mt-3 mb-3" />
-
-			<div className="text-center">
-				<a href="/sign_up">Sign up</a>
-				<span className="p-2">|</span>
-				<a href="password">Forgot Password</a>
+	componentDidMount = () => {
+		firebase.auth().onAuthStateChanged(user => {
+			this.setState({ isSignedIn: !!user });
+		});
+	};
+	render() {
+		return (
+			<div className="login-form">
+				{this.state.isSignedIn ? (
+					<span>
+						<Redirect to="home" />
+						<button onClick={() => firebase.auth().signOut()}>
+							Sign Out!
+						</button>
+					</span>
+				) : (
+					<StyledFirebaseAuth
+						uiConfig={this.uiConfig}
+						firebaseAuth={firebase.auth()}
+					/>
+				)}
 			</div>
-		</Form>
-	);
-};
+		);
+	}
+}
+
+export default Login;
