@@ -47,12 +47,13 @@ export const ProductProvider = props => {
 		product.count = 1;
 		const price = product.price;
 		product.total = price;
-
 		setProducts(tempProducts);
-		setCart(curr => [...curr, product]);
+		setCart(cart => [...cart, product]);
+
 		addTotals();
 		//console.log("tempProducts", tempProducts);
 		//console.log("cart", cart);
+
 		return { products, cart };
 	};
 
@@ -67,6 +68,7 @@ export const ProductProvider = props => {
 		return modalOpen;
 	};
 	const increment = id => {
+		console.log("cart...", [...cart]);
 		let tempCart = [...cart];
 		const selectedProduct = tempCart.find(item => item.id === id);
 		const index = tempCart.indexOf(selectedProduct);
@@ -96,7 +98,7 @@ export const ProductProvider = props => {
 		let tempProducts = [...products];
 		let tempCart = [...cart];
 		tempCart = tempCart.filter(item => item.id !== id);
-		const index = tempProducts.indexOf(this.getItem(id));
+		const index = tempProducts.indexOf(getItem(id));
 		let removedProduct = tempProducts[index];
 		removedProduct.inCart = false;
 		removedProduct.count = 0;
@@ -104,6 +106,7 @@ export const ProductProvider = props => {
 		setProducts([...tempProducts]);
 		setCart([...tempCart]);
 		addTotals();
+
 		return { products, cart };
 	};
 	const clearCart = () => {
